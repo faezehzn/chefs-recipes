@@ -1,0 +1,10 @@
+[build]
+command="npm run build"
+publish="bild"
+functions="functions"
+
+
+# [[redirects]]
+# from="/*"
+# to="/404"
+# status=404

@@ -18,6 +18,12 @@
 .env.test.local
 .env.production.local
 
+# my gitignore
+.env
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local Netlify folder
+.netlify
