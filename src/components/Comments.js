@@ -10,7 +10,6 @@ import TrackVisibility from "react-on-screen";
 import { Alert } from "react-bootstrap";
 import axios from "axios";
 import { useCustomContext } from "../context/customContext";
-import { LOCAL_URL } from "../context/constants";
 
 
 const Comments = ({ commentsUrl, currentUserId, backendComments, singlePage, witchComments }) => {
@@ -62,12 +61,7 @@ const Comments = ({ commentsUrl, currentUserId, backendComments, singlePage, wit
       blogImage: singlePage.bgImg,
     };
     setButtonText("Sending...");
-    await axios.post(`${commentsUrl}`, newComment, {headers: {
-      'Access-Control-Allow-Origin': "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
-      "Access-Control-Allow-Credentials": "true",
-    }}).then((res) => {
+    await axios.post(`${commentsUrl}`, newComment).then((res) => {
 
       if (res.status === 200 || res.statusText === "Created") {
         setStatus({ succes: true, message: "Comment added successfully" });

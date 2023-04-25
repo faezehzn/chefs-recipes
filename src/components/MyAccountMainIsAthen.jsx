@@ -8,7 +8,7 @@ import { GetSlug } from "../utilities/StringSlugConverter";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { HiPhone, HiMail } from "react-icons/hi";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { dataApi, LOCAL_URL } from "../context/constants";
+import { dataApi } from "../context/constants";
 
 const MyAccountMainIsAthen = () => {
   const {
@@ -290,10 +290,6 @@ const MyAccountMainIsAthen = () => {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
-        'Access-Control-Allow-Origin': "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Accept",
-        "Access-Control-Allow-Credentials": "true",
       },
       body: JSON.stringify(changeProfile),
     });
@@ -328,10 +324,6 @@ const MyAccountMainIsAthen = () => {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
-        'Access-Control-Allow-Origin': "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Accept",
-        "Access-Control-Allow-Credentials": "true",
       },
       body: JSON.stringify(changeProfile),
     });

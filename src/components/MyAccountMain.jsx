@@ -7,7 +7,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import History from "../components/History";
 import MyAccountMainIsAthen from "./MyAccountMainIsAthen";
-import { dataApi, LOCAL_URL } from "../context/constants";
+import { dataApi } from "../context/constants";
 
 
 const MyAccountMain = () => {
@@ -179,10 +179,6 @@ const MyAccountMain = () => {
             headers: {
               Accept: "application/json",
               "Content-type": "application/json",
-              'Access-Control-Allow-Origin': "*",
-              "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-              "Access-Control-Allow-Headers": "Content-Type, Accept",
-              "Access-Control-Allow-Credentials": "true",
             },
             body: JSON.stringify(newAccount),
           }).then((res) => {

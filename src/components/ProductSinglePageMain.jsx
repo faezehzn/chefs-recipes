@@ -22,7 +22,7 @@ import Tippy from "@tippyjs/react";
 import { Tooltip } from "react-tippy";
 import { useEffect } from "react";
 import History from "./History";
-import { dataApi, LOCAL_URL } from "../context/constants";
+import { dataApi } from "../context/constants";
 
 
 const ProductSinglePageMain = () => {
@@ -104,10 +104,6 @@ const ProductSinglePageMain = () => {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
-        'Access-Control-Allow-Origin': "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Accept",
-        "Access-Control-Allow-Credentials": "true",
       },
       body: JSON.stringify(values),
     }).then((res) => {

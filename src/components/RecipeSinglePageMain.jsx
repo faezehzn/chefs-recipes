@@ -40,7 +40,7 @@ import AnimatedProgressBar from "../utilities/AnimatedProgressBar";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import History from "../components/History";
-import { dataApi, LOCAL_URL } from "../context/constants";
+import { dataApi } from "../context/constants";
 
 const RecipeSinglePageMain = () => {
   const {
@@ -203,10 +203,6 @@ const RecipeSinglePageMain = () => {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
-        'Access-Control-Allow-Origin': "*", 
-        "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Accept",
-        "Access-Control-Allow-Credentials": "true",
       },
       body: JSON.stringify(values),
     }).then((res) => {

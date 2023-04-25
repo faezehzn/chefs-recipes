@@ -8,9 +8,7 @@ import Loading from "../utilities/Loading";
 import Pagination from "../utilities/Pagination";
 import styled from "styled-components";
 import { useCustomContext } from "../context/customContext";
-import Fade from 'react-reveal/Fade';
-
-// const url = `https://api.spoonacular.com/recipes/random?number=10&apiKey=${process.env.REACT_APP_API_KEY}`;
+import Fade from "react-reveal/Fade";
 
 const FilterRecipes = ({ recipe__type, submenu__type }) => {
   const { loading, setLoading, allCategories, randomData } = useCustomContext();
@@ -27,28 +25,6 @@ const FilterRecipes = ({ recipe__type, submenu__type }) => {
   const submenuType = GetString(submenu__type);
 
   useEffect(() => {
-    // async function fetchData() {
-    //   setLoading(true);
-
-    //   return fetch(url)
-    //     .then((res) => {
-    //       if (res.status === 200) {
-    //         // console.log(res);
-    //         return res.json();
-    //       }
-    //     })
-    //     .then((data) => {
-    //       setrandomData(data.recipes)
-    //       // setCategories(allCategories)
-    //       console.log(randomData);
-    //       setLoading(false)
-    //     })
-    //     .catch((e) => {
-    //       console.log(e);
-    //     });
-    //   }
-    // fetchData();
-
     setMenuItems(randomData);
   }, [randomData]);
 
@@ -300,9 +276,7 @@ const FilterRecipes = ({ recipe__type, submenu__type }) => {
                       if (search === "") {
                         return item;
                       } else if (
-                        item.title
-                          .toLowerCase()
-                          .includes(search.toLowerCase())
+                        item.title.toLowerCase().includes(search.toLowerCase())
                       ) {
                         return item;
                       }
@@ -317,7 +291,9 @@ const FilterRecipes = ({ recipe__type, submenu__type }) => {
                             </Badge>
                             <Link
                               reloadDocument
-                              to={`/recipes/${GetSlug(item.title.toLowerCase())}`}
+                              to={`/recipes/${GetSlug(
+                                item.title.toLowerCase()
+                              )}`}
                             >
                               <Card.Img
                                 variant="top"
@@ -330,7 +306,9 @@ const FilterRecipes = ({ recipe__type, submenu__type }) => {
                           <Card.Body className="filtering__cart--body">
                             <Link
                               reloadDocument
-                              to={`/recipes/${GetSlug(item.title.toLowerCase())}`}
+                              to={`/recipes/${GetSlug(
+                                item.title.toLowerCase()
+                              )}`}
                             >
                               <Card.Title className="filtering__cart--title">
                                 {item.title.length > 35
@@ -587,30 +565,37 @@ const Wrapper = styled.section`
 
     /************ Responsive Css ************/
     @media only screen and (max-width: 1200px) {
-      .filtering__cart--img {
-        height: 20vh;
+      .filtering__main {
+        .filtering__carts {
+          .filtering__cart {
+            .filtering__cart--top {
+              .filtering__cart--img {
+                height: 20vh;
+              }
+            }
+          }
+        }
       }
-    }
     @media only screen and (max-width: 992px) {
       .filtering__sidebar {
         width: 30% !important;
       }
       .filtering__main {
         width: 60% !important;
-      }
-      .filtering__carts {
-        grid-template-columns: repeat(2, 1fr);
+        .filtering__carts {
+          grid-template-columns: repeat(2, 1fr);
+        }
       }
     }
     @media only screen and (max-width: 768px) {
       .filtering__main {
         width: 45% !important;
+        .filtering__carts {
+          grid-template-columns: repeat(1, 1fr);
+        }
       }
       .filtering__sidebar {
         width: 35% !important;
-      }
-      .filtering__carts {
-        grid-template-columns: repeat(1, 1fr);
       }
     }
     @media only screen and (max-width: 576px) {
@@ -618,24 +603,24 @@ const Wrapper = styled.section`
         width: 80% !important;
         height: fit-content;
         margin: 2rem 0 0 0;
+        .filtering__carts {
+          grid-template-columns: repeat(1, 1fr);
+          .filtering__cart--img {
+            height: 30vh !important;
+          }
+        }
       }
       .filtering__sidebar {
         width: 90% !important;
         height: fit-content;
       }
-      .filtering__carts {
-        grid-template-columns: repeat(1, 1fr);
-      }
-      .filtering__cart--img {
-        height: 30vh;
-      }
     }
     @media only screen and (max-width: 450px) {
       .filtering__main {
         width: 90% !important;
-      }
-      .filtering__cart--img {
-        height: 25vh;
+        .filtering__cart--img {
+          height: 25vh;
+        }
       }
     }
   }

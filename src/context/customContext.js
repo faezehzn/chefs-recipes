@@ -27,7 +27,7 @@ import {
   MdStarPurple500
 } from "react-icons/md";
 import videoRecipesDatas from "../assets/data/VideoRecipesData";
-import { dataApi, LOCAL_URL } from "./constants";
+import { dataApi } from "./constants";
 
 
 export const customContext = createContext();
@@ -291,12 +291,7 @@ export function ContextProvider({ children }) {
   const [recipeId, setRecipeId] = useState(1)
   
   useEffect(()=> {
-    axios.get(`${dataApi}/newRecipe`, {headers: {
-      'Access-Control-Allow-Origin': "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Credentials": "true",
-    }}).then((res) => {
+    axios.get(`${dataApi}/newRecipe`).then((res) => {
       setRecipeId(res.data.length + 1)
     });
   })

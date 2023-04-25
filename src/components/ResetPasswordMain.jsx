@@ -6,7 +6,7 @@ import { Alert } from "react-bootstrap";
 import History from "./History";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
-import { dataApi, LOCAL_URL } from "../context/constants";
+import { dataApi } from "../context/constants";
 
 const ForgetPasswordMain = () => {
   const { data } = useCustomContext();
@@ -119,12 +119,7 @@ const ForgetPasswordMain = () => {
       setButtonTxt("Reset");
       if (newPass === confirmPass) {
         userData.password = newPass
-        axios.put(`${dataApi}/users/${userData.id}`, userData, {headers: {
-          'Access-Control-Allow-Origin': "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Credentials": "true",
-        }})
+        axios.put(`${dataApi}/users/${userData.id}`, userData)
         setStatus({ succes: true, message: "Password reset" });
         setTimeout(() => {
           refAlert.current.className += " d-none";

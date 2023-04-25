@@ -7,11 +7,11 @@
 }
 @font-face {
   font-family: RobotoExtraBold;
-  src: url("./assets/fonts/static/RobotoSlab-ExtraBold.ttf");
+  src: url("./assets/fonts/RobotoSlab-ExtraBold.ttf");
 }
 @font-face {
   font-family: RobotoBlack;
-  src: url("./assets/fonts/static/RobotoSlab-Black.ttf");
+  src: url("./assets/fonts/RobotoSlab-Black.ttf");
 }
 @font-face {
   font-family: CherrySwash;

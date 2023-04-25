@@ -8,7 +8,7 @@ import styled from "styled-components";
 import TitleTxtContainer from "../utilities/TitleTxtContainer";
 import CustomButton from "../utilities/CustomButton";
 import Fade from "react-reveal/Fade";
-import { dataApi, LOCAL_URL } from "../context/constants";
+import { dataApi } from "../context/constants";
 
 const ContactForm = () => {
   const urlMap =
@@ -62,10 +62,6 @@ const ContactForm = () => {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
-        'Access-Control-Allow-Origin': "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, accept",
-        "Access-Control-Allow-Credentials": "true",
       },
       body: JSON.stringify(values),
     }).then((res) => {

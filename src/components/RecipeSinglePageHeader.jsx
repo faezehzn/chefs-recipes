@@ -8,10 +8,10 @@ import { HiOutlineHeart, HiPrinter, HiCode, HiHeart } from "react-icons/hi";
 import { useRef, useState, useEffect } from "react";
 import ReactDOMServer from "react-dom/server";
 import EmbedCard from "../utilities/EmbedCard";
-import { dataApi, LOCAL_URL } from "../context/constants";
+import { dataApi } from "../context/constants";
 
 const RecipeSinglePageHeader = () => {
-  const { singleRecipe, titleRecipeString, handlePrintRecipe, printParams, setTitlePage, isAuthenticated, setUser, user, data } =
+  const { singleRecipe, titleRecipeString, handlePrintRecipe, setTitlePage, isAuthenticated, setUser, user, data } =
     useCustomContext();
   const [buttonTxt, setButtonTxt] = useState("Add to Favorite");
   const [embedShow, setEmbedShow] = useState(false);
@@ -73,10 +73,6 @@ const RecipeSinglePageHeader = () => {
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",
-          'Access-Control-Allow-Origin': "*",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, OPTIONS",
-          "Access-Control-Allow-Headers": "Content-Type, Accept",
-          "Access-Control-Allow-Credentials": "true",
         },
         body: JSON.stringify(changeduserData),
       }).then((res) => {
